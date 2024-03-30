@@ -32,7 +32,11 @@ const Head = () => {
   }, [searchQuery]);
 
   const getSearchSuggestions = async () => {
-    const data = await fetch(YOUTUBE_SEARCH_API + searchQuery);
+    const data = await fetch(YOUTUBE_SEARCH_API + searchQuery, {
+      headers: {
+      'x-cors-api-key': 'temp_b722fb498d04c59c70b85ba72de25333'
+      }
+    });
     const json = await data.json();
     setSuggestions(json[1]);
 
